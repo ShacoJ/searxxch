@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: searxng
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SEARXNG_HOSTNAME
+        sync: false
+    healthCheckPath: /
+    plan: starter
+    autoDeploy: true
+    disk:
+      name: searxng-data
+      mountPath: /etc/searxng
+      sizeGB: 1 
